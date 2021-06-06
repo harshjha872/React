@@ -1,17 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import faker from 'faker';
+import CommentsDetail from './commentDetail';
+import AgreeOrReject from './AgreeOrReject';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function timeFunction() {
+  return `Yesterday at 3:00 PM`
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+const App = () => {
+  return (
+    <div className="ui container comments">
+      <AgreeOrReject >
+        <CommentsDetail Auth="sam" imageOfuser={faker.image.avatar()} time="Today at 6:00 AM" comment="great bro" />
+      </AgreeOrReject>
+
+      <AgreeOrReject >
+        <CommentsDetail Auth="simons" imageOfuser={faker.image.avatar()} time={timeFunction()} comment="Nice!!" />
+      </AgreeOrReject>
+
+      <AgreeOrReject >
+        <CommentsDetail Auth="raj" imageOfuser={faker.image.avatar()} time="2 days ago" comment="Awesome" />
+      </AgreeOrReject>
+
+      <AgreeOrReject >
+        <div>
+          <h4>Warning!</h4>
+          Are you sure you wanna quit?
+        </div>
+      </AgreeOrReject>
+    </div>
+  );
+}
+ReactDOM.render(<App />, document.querySelector('#root'));

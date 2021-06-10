@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import './style.css';
+import DateBox from './date';
+import NameCompo from './NameCompo';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+  const date = new Date().getMonth();
+  let i = 0;
+
+  const [currentDate, setDate] = useState(date);
+
+  const clickHandler = () => {
+    setDate(++i);
+    console.log('Click Me is clicked');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NameCompo Name='Harsh Jha' />
+      <DateBox />
+      <div className='heading'>Hello</div>
+      <h1 className='date--heading'>{currentDate}</h1>
+      <button onClick={clickHandler}>Click Me</button>
     </div>
   );
-}
+};
 
 export default App;

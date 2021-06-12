@@ -5,6 +5,7 @@ const Form = (props) => {
   //States
   const [inputText, setInputText] = useState('');
   const [inputDate, setInputDate] = useState('');
+  const [inputTime, setInputTime] = useState('');
 
   const textchangeHandler = (e) => {
     setInputText(e.target.value);
@@ -14,16 +15,21 @@ const Form = (props) => {
     setInputDate(e.target.value);
   };
 
+  const timeChangeHandler = (e) => {
+    setInputTime(e.target.value);
+  };
+
   const submitHAndler = (e) => {
     e.preventDefault();
     const FinalValues = {
       text: inputText,
-      date: inputDate,
+      date: new Date(inputDate),
+      time: inputTime,
     };
-    // console.log(FinalValues);
 
     setInputText('');
     setInputDate('');
+    setInputTime('');
 
     //!Passing values to above component - App.js component
     props.displayValues(FinalValues);
@@ -45,7 +51,12 @@ const Form = (props) => {
           value={inputDate}
           onChange={dateChangeHandler}
         />
-        <input type='text' placeholder='Minimum time' />
+        <input
+          type='number'
+          placeholder='Minimum time in hrs'
+          value={inputTime}
+          onChange={timeChangeHandler}
+        />
         <button type='submit'>Submit</button>
       </div>
     </form>

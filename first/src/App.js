@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import './style.css';
+import './style.module.css';
 import Form from './Form';
 import DateBox from './date';
 import styled from 'styled-components';
+
 const App = () => {
   const Button = styled.button`
-    background: transparent;
-    border-radius: 3px;
-    border: 2px solid palevioletred;
-    color: palevioletred;
-    margin: 0 1em;
-    padding: 0.25em 1em;
+    color: white;
   `;
 
   const [TopicContents, setTopicContent] = useState([

@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import Form from './form';
+import DisplayData from './DisplayData';
 
-function App() {
+const App = () => {
+  const [DataState, setDataState] = useState([]);
+
+  let displayEle = DataState.map((ele) => (
+    <DisplayData UserName={ele.UserName} UserAge={ele.UserAge} />
+  ));
+
+  const parsingValues = (accept) => {
+    setDataState((puranivalues) => [
+      {
+        UserAge: accept.UserAge,
+        UserName: accept.UserName,
+      },
+      ...puranivalues,
+    ]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Form valueFunction={parsingValues} />
+      {DataState && displayEle}
     </div>
   );
-}
+};
 
 export default App;

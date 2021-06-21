@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './style.module.css';
 import Form from './Form';
 import DateBox from './date';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 const App = () => {
   //!styled components
-  const Button = styled.button`
-    color: white;
-  `;
+  // const Button = styled.button`
+  //   color: white;
+  // `;
 
   const [TopicContents, setTopicContent] = useState([
     {
@@ -44,11 +44,11 @@ const App = () => {
   }
 
   return (
-    <div>
+    <React.Fragment>
       <Form displayValues={displayValueFunction} />
       {conTent}
-      <Button />
-    </div>
+      {/* styled component : <Button /> */}
+    </React.Fragment>
   );
 };
 

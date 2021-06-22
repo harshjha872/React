@@ -21,10 +21,10 @@ const App = () => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <Form valueFunction={parsingValues} />
       {DataState && displayEle}
-    </div>
+    </React.Fragment>
   );
 };
 

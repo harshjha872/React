@@ -31,7 +31,7 @@ const Form = (props) => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       {error && <Error closeError={closeError} />}
       <form onSubmit={onSubmitHandler}>
         <label>Enter The Name</label>
@@ -40,7 +40,7 @@ const Form = (props) => {
         <input type='number' onChange={onChangeAgeHandler} value={UserAge} />
         <button>Add User</button>
       </form>
-    </div>
+    </React.Fragment>
   );
 };
 

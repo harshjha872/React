@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 
 const DisplayData = (props) => {
   return (
-    <div>
+    <React.Fragment>
       {props.UserName}
       {props.UserAge}
-    </div>
+    </React.Fragment>
   );
 };
 

@@ -1,5 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useReducer } from 'react';
 import React from 'react';
+
+//!changing state function of useReducer outside component
+const courseReducer = (state, action) => {
+  if (action.type === 'String it is.')
+    console.log(action.type, action.valueInsideChanger);
+  else {
+    console.log(state.isString);
+    console.log(state.val);
+  }
+  return { val: 'function Finished', isString: true };
+};
 
 const Form = (props) => {
   //States
@@ -22,8 +33,24 @@ const Form = (props) => {
 
   /////////////////////////////////
 
+  //!useReducer Hook
+
+  const [CourseName, CourseNameChanger] = useReducer(courseReducer, {
+    //starting state
+    val: '',
+    isString: true,
+  });
+
+  /////////////////////////////////
+
   const textchangeHandler = (e) => {
     setInputText(e.target.value);
+
+    //!useReducer
+    CourseNameChanger({
+      type: 'String it is.',
+      valueInsideChanger: e.target.value,
+    });
   };
 
   const dateChangeHandler = (e) => {
@@ -32,6 +59,12 @@ const Form = (props) => {
 
   const timeChangeHandler = (e) => {
     setInputTime(e.target.value);
+
+    //!useReducer
+    CourseNameChanger({
+      type: 'its is hrs',
+      valueInsideChanger: e.target.value,
+    });
   };
 
   const submitHAndler = (e) => {
@@ -48,6 +81,9 @@ const Form = (props) => {
 
     //!Passing values to above component - App.js component
     props.displayValues(FinalValues);
+
+    //!useReducer console
+    console.log(CourseName.val);
   };
 
   return (

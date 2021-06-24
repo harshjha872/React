@@ -1,5 +1,6 @@
-import { useEffect, useState, useReducer } from 'react';
+import { useEffect, useState, useReducer, useContext } from 'react';
 import React from 'react';
+import AuthContext from './context/Authcontext';
 
 //!changing state function of useReducer outside component
 const courseReducer = (state, action) => {
@@ -12,7 +13,7 @@ const courseReducer = (state, action) => {
   return { val: 'function Finished', isString: true };
 };
 
-const Form = (props) => {
+const Form = () => {
   //States
   const [inputText, setInputText] = useState('');
   const [inputDate, setInputDate] = useState('');
@@ -80,11 +81,21 @@ const Form = (props) => {
     setInputTime('');
 
     //!Passing values to above component - App.js component
-    props.displayValues(FinalValues);
+    // props.displayValues(FinalValues);
+    ctx.displayValues(FinalValues);
 
     //!useReducer console
     console.log(CourseName.val);
   };
+
+  ///////////////////////////////////
+
+  //!useContext
+
+  const ctx = useContext(AuthContext);
+  // console.log(ctx);
+
+  ///////////////////////////////////
 
   return (
     <form onSubmit={submitHAndler}>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './style.module.css';
 import Form from './Form';
 import DateBox from './date';
+import AuthContext from './context/Authcontext';
 // import styled from 'styled-components';
 
 const App = () => {
@@ -44,11 +45,16 @@ const App = () => {
   }
 
   return (
-    <React.Fragment>
-      <Form displayValues={displayValueFunction} />
+    <AuthContext.Provider
+      value={{
+        insideContext: false,
+        displayValues: displayValueFunction,
+      }}
+    >
+      <Form />
       {conTent}
       {/* styled component : <Button /> */}
-    </React.Fragment>
+    </AuthContext.Provider>
   );
 };
 

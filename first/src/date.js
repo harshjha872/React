@@ -3,6 +3,7 @@ import React from 'react';
 
 const DateBox = (props) => {
   const month = props.date.toLocaleString('en-US', { month: 'long' });
+
   return (
     <div className={style['main--container']}>
       <div className={style['container--contents']}>

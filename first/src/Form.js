@@ -70,6 +70,7 @@ const Form = () => {
 
   const submitHAndler = (e) => {
     e.preventDefault();
+
     const FinalValues = {
       text: inputText,
       date: new Date(inputDate),
@@ -80,9 +81,11 @@ const Form = () => {
     setInputDate('');
     setInputTime('');
 
-    //!Passing values to above component - App.js component
-    // props.displayValues(FinalValues);
-    ctx.displayValues(FinalValues);
+    if (inputText && inputDate && inputTime) {
+      //!Passing values to above component - App.js component
+      // props.displayValues(FinalValues);
+      ctx.displayValues(FinalValues);
+    }
 
     //!useReducer console
     console.log(CourseName.val);

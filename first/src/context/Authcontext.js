@@ -2,7 +2,7 @@ import React from 'react';
 
 const AuthContext = React.createContext({
   insideContext: true,
-  displayValues: () => {},
+  displayValues: (Product) => {},
 });
 
 export default AuthContext;

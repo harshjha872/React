@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './nav';
 import FoodItem from './FoodItem';
 import Modal from './Modal';
+import CartContext from './CartContext';
 
 function App() {
   const DUMMY_MEALS = [
@@ -31,6 +32,12 @@ function App() {
     },
   ];
 
+  const [cartProds, setCartProds] = useState([]);
+
+  const CartProducts = (Product) => {
+    setCartProds((pre) => [Product, ...pre]);
+  };
+
   const content = DUMMY_MEALS.map((ele) => (
     <FoodItem
       name={ele.name}
@@ -41,11 +48,13 @@ function App() {
   ));
 
   return (
-    <React.Fragment>
+    <CartContext.Provider
+      value={{ Products: cartProds, passinCartProducts: CartProducts }}
+    >
       <Navbar />
       {content}
       <Modal />
-    </React.Fragment>
+    </CartContext.Provider>
   );
 }
 

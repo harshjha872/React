@@ -35,7 +35,17 @@ function App() {
   const [cartProds, setCartProds] = useState([]);
 
   const CartProducts = (Product) => {
-    setCartProds((pre) => [Product, ...pre]);
+    setCartProds((pre) => {
+      const repeatedFood = pre.find((ele) => Product.Name === ele.Name);
+
+      if (repeatedFood) {
+        const newFoodList = pre.filter((ele) => repeatedFood.Name !== ele.Name);
+        repeatedFood.Amount = repeatedFood.Amount + Product.Amount;
+        return [...newFoodList, repeatedFood];
+      } else {
+        return [Product, ...pre];
+      }
+    });
   };
 
   const content = DUMMY_MEALS.map((ele) => (

@@ -17,13 +17,17 @@ const FoodinCart = (props) => {
         <h5 className='card-title'>{props.name}</h5>
         <p className='card-text'>PRICE: {props.price}</p>
         <p className='card-text'>{Amount}</p>
-        <div class='btn-group me-2' role='group' aria-label='Second group'>
-          <button type='button' class='btn btn-secondary' onClick={PlusHandler}>
+        <div className='btn-group me-2' role='group' aria-label='Second group'>
+          <button
+            type='button'
+            className='btn btn-secondary'
+            onClick={PlusHandler}
+          >
             +
           </button>
           <button
             type='button'
-            class='btn btn-secondary'
+            className='btn btn-secondary'
             onClick={MinusHandler}
           >
             -

@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import CartContext from './CartContext';
 import FoodinCart from './FoodsinCart';
 
-const Modal = () => {
+const Modal = (props) => {
   const AllCartProds = useContext(CartContext);
 
   const content = AllCartProds.Products.map((ele) => (
     <FoodinCart name={ele.Name} price={ele.price} Amount={ele.Amount} />
   ));
 
+  props.currenStateProd(AllCartProds.Products);
   return (
     <div
       className='modal fade'

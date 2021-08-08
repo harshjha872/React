@@ -37,15 +37,28 @@ function App() {
   const CartProducts = (Product) => {
     setCartProds((pre) => {
       const repeatedFood = pre.find((ele) => Product.Name === ele.Name);
-
+      console.log(repeatedFood);
       if (repeatedFood) {
         const newFoodList = pre.filter((ele) => repeatedFood.Name !== ele.Name);
+        console.log(newFoodList);
         repeatedFood.Amount = repeatedFood.Amount + Product.Amount;
         return [...newFoodList, repeatedFood];
       } else {
         return [Product, ...pre];
       }
     });
+  };
+
+  const currenStateProd = (CurrentStateofProducts) => {
+    console.log(CurrentStateofProducts);
+  };
+
+  const [dataPrint, setDataPrint] = useState(null);
+
+  const getData = () => {
+    fetch('http://localhost:8000/getdata')
+      .then((res) => res.json())
+      .then((data) => setDataPrint(data.message));
   };
 
   const content = DUMMY_MEALS.map((ele) => (
@@ -63,7 +76,9 @@ function App() {
     >
       <Navbar />
       {content}
-      <Modal />
+      <Modal currenStateProd={currenStateProd} />
+      <button onClick={getData}>getData</button>
+      <div>{dataPrint}</div>
     </CartContext.Provider>
   );
 }

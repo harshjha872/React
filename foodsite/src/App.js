@@ -53,13 +53,13 @@ function App() {
     console.log(CurrentStateofProducts);
   };
 
-  const [dataPrint, setDataPrint] = useState(null);
+  // const [dataPrint, setDataPrint] = useState(null);
 
-  const getData = () => {
-    fetch('http://localhost:8000/getdata')
-      .then((res) => res.json())
-      .then((data) => setDataPrint(data.message));
-  };
+  // const getData = () => {
+  //   fetch('http://localhost:8000/getdata')
+  //     .then((res) => res.json())
+  //     .then((data) => setDataPrint(data.message));
+  // };
 
   const content = DUMMY_MEALS.map((ele) => (
     <FoodItem
@@ -77,8 +77,8 @@ function App() {
       <Navbar />
       {content}
       <Modal currenStateProd={currenStateProd} />
-      <button onClick={getData}>getData</button>
-      <div>{dataPrint}</div>
+      {/* <button onClick={getData}>getData</button> */}
+      {/* <div>{dataPrint}</div> */}
     </CartContext.Provider>
   );
 }

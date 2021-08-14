@@ -77,6 +77,7 @@ function App() {
       <Navbar />
       {content}
       <Modal currenStateProd={currenStateProd} />
+      {/* // fetch req */}
       {/* <button onClick={getData}>getData</button> */}
       {/* <div>{dataPrint}</div> */}
     </CartContext.Provider>

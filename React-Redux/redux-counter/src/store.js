@@ -17,4 +17,6 @@ const counterReducer = (state = { counter: 0 }, action) => {
 };
 const store = createStore(counterReducer);
 
+//react-toolkit
+
 export default store;

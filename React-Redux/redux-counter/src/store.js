@@ -16,6 +16,9 @@ const counterSlice = createSlice({
     decrement(state) {
       state.counter--;
     },
+    increaseby10(state, action) {
+      state.counter = state.counter + action.payload;
+    },
   },
 });
 
@@ -23,6 +26,8 @@ const store = configureStore({
   reducer: counterSlice.reducer,
 });
 
+export const CounterActions = counterSlice.actions;
+export default store;
 // const counterReducer = (state = { counter: 0 }, action) => {
 //   if (action.type === 'in')
 //     return {
@@ -40,4 +45,4 @@ const store = configureStore({
 // };
 // const store = createStore(counterReducer);
 
-export default store;
+// export default store;

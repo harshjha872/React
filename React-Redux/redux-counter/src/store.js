@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 
 //redux-toolkit
 
@@ -22,11 +22,28 @@ const counterSlice = createSlice({
   },
 });
 
+const dummySlice = createSlice({
+  name: 'secondSlice',
+  initialState: {
+    value: 1,
+  },
+  reducers: {
+    increaseValue(state) {
+      state.value++;
+    },
+  },
+});
+
 const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: {
+    counter: counterSlice.reducer,
+    dummy: dummySlice.reducer,
+  },
+  //for multiple slices we should do like reducer: { counter: counterSlice.reduce , anotherSliceName: SliceName.reducer}
 });
 
 export const CounterActions = counterSlice.actions;
+export const DummyActions = dummySlice.actions;
 export default store;
 // const counterReducer = (state = { counter: 0 }, action) => {
 //   if (action.type === 'in')

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { CounterActions } from './store';
 
 const App = () => {
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector((state) => state.counter.counter);
   const dispatch = useDispatch();
 
   const IncreseHandler = () => {
@@ -17,6 +17,7 @@ const App = () => {
   const IncreaseBy10Handler = () => {
     dispatch(CounterActions.increaseby10(10));
   };
+
   return (
     <Fragment>
       <h1>{counter}</h1>

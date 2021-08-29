@@ -3,24 +3,7 @@
 //redux-toolkit
 
 import { createSlice, configureStore } from '@reduxjs/toolkit';
-
-const counterSlice = createSlice({
-  name: 'counter',
-  initialState: {
-    counter: 0,
-  },
-  reducers: {
-    increment(state) {
-      state.counter++;
-    },
-    decrement(state) {
-      state.counter--;
-    },
-    increaseby10(state, action) {
-      state.counter = state.counter + action.payload;
-    },
-  },
-});
+import counterSlice from './counterSlice';
 
 const dummySlice = createSlice({
   name: 'secondSlice',
@@ -39,12 +22,12 @@ const store = configureStore({
     counter: counterSlice.reducer,
     dummy: dummySlice.reducer,
   },
-  //for multiple slices we should do like reducer: { counter: counterSlice.reduce , anotherSliceName: SliceName.reducer}
 });
 
 export const CounterActions = counterSlice.actions;
 export const DummyActions = dummySlice.actions;
 export default store;
+
 // const counterReducer = (state = { counter: 0 }, action) => {
 //   if (action.type === 'in')
 //     return {

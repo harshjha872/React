@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CounterActions } from './store';
+import { sendReq } from './counterSlice';
 
 const App = () => {
   const counter = useSelector((state) => state.counter.counter);
@@ -8,6 +9,7 @@ const App = () => {
 
   const IncreseHandler = () => {
     dispatch(CounterActions.increment());
+    dispatch(sendReq('argument'));
   };
 
   const DecreaseHandler = () => {

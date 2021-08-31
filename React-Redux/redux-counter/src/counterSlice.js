@@ -18,4 +18,14 @@ const counterSlice = createSlice({
   },
 });
 
+//http reqs- action creater
+
+export const sendReq = () => {
+  return async (arg) => {
+    //fetch req
+    // fetch('')
+    console.log('hello', arg);
+  };
+};
+
 export default counterSlice;

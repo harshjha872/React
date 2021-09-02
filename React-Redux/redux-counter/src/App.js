@@ -9,7 +9,7 @@ const App = () => {
 
   const IncreseHandler = () => {
     dispatch(CounterActions.increment());
-    dispatch(sendReq('argument'));
+    dispatch(sendReq(5));
   };
 
   const DecreaseHandler = () => {

@@ -18,13 +18,17 @@ const counterSlice = createSlice({
   },
 });
 
-//http reqs- action creater
+//http reqs - action creater
 
 export const sendReq = () => {
-  return async (arg) => {
+  return (dispatch) => {
+    //this dispatch is given by redux in as argument
     //fetch req
     // fetch('')
-    console.log('hello', arg);
+    console.log('hello');
+    // dispatch(counterSlice.actions.increment())
+    //u can also dispatch actions here
+    //dispatch(increment())
   };
 };
 

@@ -1,7 +1,5 @@
-import classes from "./css/style.module.css";
-
 const App = () => {
-  return <div className={classes.random}>Heelo</div>;
+  return <div>Hello</div>;
 };
 
 export default App;

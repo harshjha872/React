@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <Route path="/">
       <header className="w-full flex flex-row bg-gray-900 items-center justify-between px-14 py-5 shadow border-b-2 border-gray-800">
-        <div className="h-15 text-gray-50">
+        <div className="h-15 text-gray-200">
           <Link to="/">
             <svg
               className="inline"
@@ -19,8 +19,8 @@ const Navbar = () => {
             </svg>
           </Link>
         </div>
-        <div className="text-white flex flex-row">
-          <Link to="/add" className="hover:text-gray-200 px-4 py-3 inline">
+        <div className="text-gray-200 flex flex-row">
+          <Link to="/add" className="hover:text-white px-4 py-3 inline">
             <svg
               className="inline"
               xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ const Navbar = () => {
               />
             </svg>
           </Link>
-          <Link to="/add" className="hover:text-gray-200 px-4 py-3 inline">
+          <Link to="/cart" className="hover:text-white px-4 py-3 inline">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -54,7 +54,7 @@ const Navbar = () => {
             </svg>
           </Link>
           <Link
-            className="hover:text-gray-200  text-gray-50 text-lg px-6 py-3 font-light antialiased tracking-tighter font-monst"
+            className="hover:text-white text-gray-200 text-lg px-6 py-3 font-light antialiased tracking-tighter font-monst"
             to="/signup"
           >
             Signup

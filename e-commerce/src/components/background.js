@@ -9,7 +9,7 @@ const Background = () => {
         <div className="w-1/4">
           <Categories />
         </div>
-        <div className="flex flex-col h-full w-full">
+        <div className="flex flex-col h-full w-3/4">
           <Mainsection />
         </div>
       </div>

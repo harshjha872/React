@@ -2,9 +2,8 @@ import React from "react";
 
 function Minicard(props) {
   return (
-    <div className="bg-white my-4 mr-6 h-20 w-20 rounded-2xl object-center object-cover">
+    <div className="bg-white flex justify-center  my-4 mr-6 items-center h-16 w-16 rounded-2xl object-center object-cover">
       <svg
-        className="p-4 h-full w-full"
         xmlns={props.xmlns}
         width={props.width}
         height={props.height}
@@ -13,6 +12,7 @@ function Minicard(props) {
         viewBox={props.viewBox}
       >
         <path d={props.d} />
+        <path d={props.d2} />
       </svg>
     </div>
   );

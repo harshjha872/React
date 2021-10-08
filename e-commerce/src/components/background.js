@@ -5,7 +5,7 @@ import Mainsection from "./mainsection";
 const Background = () => {
   return (
     <Fragment>
-      <div className="bg-gray-100 h-screen flex flex-row w-full">
+      <div className="bg-gray-100 h-auto flex flex-row w-full">
         <div className="w-1/4">
           <Categories />
         </div>
